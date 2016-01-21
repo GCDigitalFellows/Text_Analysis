@@ -26,10 +26,10 @@ All the things you can look at with text analysis
 
 Let's get started with Python
         NLTK Functions
-    	```
-        import nltk
-        from nltk.book import *
-    	```
+```
+import nltk
+from nltk.book import *
+```
 		
 		i. Concordance - shows the context that the word occurs in
 			text1.concordance('WORD')
