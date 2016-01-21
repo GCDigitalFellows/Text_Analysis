@@ -19,13 +19,13 @@ Before we cover this, we have to talk about data types
 	* dictionaries - key/value pair. Useful for keeping tallies of things: i.e., number of times a word appears i.e., {a:200, b:15, c:135 ... }
 	my_dict = {} (makes an empty dictionary)
 
-1. All the things you can look at with text analysis
-	a. Text Editor Functions
-		i. Word counts
-		ii. Word-in-context (text wrangler & sublime)
+All the things you can look at with text analysis
+	Text Editor Functions
+		Word counts
+		Word-in-context (text wrangler & sublime)
 
 Let's get started with Python
-	b. NLTK Functions
+        NLTK Functions
     import nltk
     from nltk.book import *
 		
