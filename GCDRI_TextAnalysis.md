@@ -33,21 +33,6 @@ import nltk
 from nltk.book import *
 ```
 
-    *** Introductory Examples for the NLTK Book ***
-    Loading text1, ..., text9 and sent1, ..., sent9
-    Type the name of the text or sentence to view it.
-    Type: 'texts()' or 'sents()' to list the materials.
-    text1: Moby Dick by Herman Melville 1851
-    text2: Sense and Sensibility by Jane Austen 1811
-    text3: The Book of Genesis
-    text4: Inaugural Address Corpus
-    text5: Chat Corpus
-    text6: Monty Python and the Holy Grail
-    text7: Wall Street Journal
-    text8: Personals Corpus
-    text9: The Man Who Was Thursday by G . K . Chesterton 1908
-
-
 **Concordance**: Words in their contexts
 
 
@@ -142,13 +127,6 @@ This is a descriptive measure of language register or grade level approximations
 ```python
 len(set(text1))/len(text1)
 ```
-
-
-
-
-    0.07406285585022564
-
-
 
 **Frequency Distribution** is a probability object that Python deals with. We will use it to make a graph of the most common words.
 
@@ -250,13 +228,6 @@ zt = raw.decode('utf-8')
 type(zt)
 ```
 
-
-
-
-    str
-
-
-
 If this doesn't work, or you are dealing with messier text, check out the ftfy library
 Fixes Text For You   
 
@@ -275,13 +246,6 @@ type(zt)
 ```
 
 
-
-
-    str
-
-
-
-
 ```python
 #split the string into words with word_tokenize
 zt_tok = nltk.word_tokenize(zt)
@@ -294,46 +258,16 @@ type(zt_tok)
 ```
 
 
-
-
-    list
-
-
-
-
 ```python
 #get an idea of how big the file is
 len(zt_tok)
 ```
 
 
-
-
-    34860
-
-
-
-
 ```python
 #look at the first 10 words to be sure its correct
 zt_tok[:10]
 ```
-
-
-
-
-    ['The',
-     'Project',
-     'Gutenberg',
-     'EBook',
-     'of',
-     'Zanzibar',
-     'Tales',
-     ',',
-     'by',
-     'Various']
-
-
 
 Yuck! That just looks like metadata! 
 
@@ -354,23 +288,6 @@ zt_tok[177:188]
 ```
 
 
-
-
-    ['TO',
-     'MY',
-     'READERS',
-     '.',
-     'Thirty',
-     'years',
-     'ago',
-     'Central',
-     'Africa',
-     'was',
-     'what']
-
-
-
-
 ```python
 #turn the list of words into a text nltk can recognize
 zt_text = nltk.Text(zt_tok[177:])
@@ -383,24 +300,10 @@ type(zt_text)
 ```
 
 
-
-
-    nltk.text.Text
-
-
-
-
 ```python
 #get an idea of how big the file is
 len(zt_text)
 ```
-
-
-
-
-    34683
-
-
 
 One step further! 
 **Part-of-Speech Tagging**
@@ -420,22 +323,12 @@ zt_tagged = nltk.pos_tag(zt_text)
 print(zt_tagged[:10])
 ```
 
-    [('TO', 'NNP'), ('MY', 'NNP'), ('READERS', 'NNP'), ('.', '.'), ('Thirty', 'CD'), ('years', 'NNS'), ('ago', 'RB'), ('Central', 'NNP'), ('Africa', 'NNP'), ('was', 'VBD')]
-
-
 This doesn't look like a dictionary! What's going on??
 
 
 ```python
 type(zt_tagged)
 ```
-
-
-
-
-    list
-
-
 
 We have a **list of tuples**
 
@@ -461,9 +354,6 @@ def commontag(taggedbook):
 
 commontag(zt_tagged)
 ```
-
-    OrderedDict([('$', 2), ('WP$', 6), ('RBR', 7), ('RBS', 8), ('FW', 8), ('NNPS', 11), (')', 22), ('(', 22), ('JJS', 26), ('JJR', 28), ('PDT', 46), ('EX', 68), ('UH', 72), ('POS', 109), ('WDT', 146), ('RP', 209), ('WP', 211), ('CD', 290), ('WRB', 297), ('MD', 462), ('VBZ', 467), ('VBG', 493), (':', 571), ('VBN', 591), ('PRP$', 632), ('``', 719), ('VBP', 739), ('TO', 794), ("''", 837), ('NNS', 885), ('JJ', 1297), ('NNP', 1328), ('VB', 1386), ('CC', 1461), ('.', 1605), ('RB', 1632), ('VBD', 2171), (',', 2639), ('IN', 2731), ('DT', 2941), ('PRP', 3000), ('NN', 3714)])
-
 
 I wish I would have made that return an ordered dictionary!!!
 
@@ -558,9 +448,6 @@ for word in text1:
 print(nostop_text1[50:150])
 ```
 
-    ['.', 'He', 'loved', 'dust', 'old', 'grammars', ';', 'somehow', 'mildly', 'reminded', 'mortality', '.', '"', 'While', 'take', 'hand', 'school', 'others', ',', 'teach', 'name', 'whale', '-', 'fish', 'called', 'tongue', 'leaving', ',', 'ignorance', ',', 'letter', 'H', ',', 'almost', 'alone', 'maketh', 'signification', 'word', ',', 'deliver', 'true', '."', '--', 'HACKLUYT', '"', 'WHALE', '.', '...', 'Sw', '.', 'Dan', '.', 'HVAL', '.', 'This', 'animal', 'named', 'roundness', 'rolling', ';', 'Dan', '.', 'HVALT', 'arched', 'vaulted', '."', '--', 'WEBSTER', "'", 'S', 'DICTIONARY', '"', 'WHALE', '.', '...', 'It', 'immediately', 'Dut', '.', 'Ger', '.', 'WALLEN', ';', 'A', '.', 'S', '.', 'WALW', '-', 'IAN', ',', 'roll', ',', 'wallow', '."', '--', 'RICHARDSON', "'", 'S', 'DICTIONARY']
-
-
 Now to:
 * remove all that punctuation 
 * make everything lowercase
@@ -588,9 +475,6 @@ for w in nopunct_text1:
 print(lower_text1[:50])
 ```
 
-    ['moby', 'dick', 'herman', 'melville', 'etymology', 'supplied', 'late', 'consumptive', 'usher', 'grammar', 'school', 'the', 'pale', 'usher', 'threadbare', 'coat', 'heart', 'body', 'brain', 'i', 'see', 'he', 'ever', 'dusting', 'old', 'lexicons', 'grammars', 'queer', 'handkerchief', 'mockingly', 'embellished', 'gay', 'flags', 'known', 'nations', 'world', 'he', 'loved', 'dust', 'old', 'grammars', 'somehow', 'mildly', 'reminded', 'mortality', 'while', 'take', 'hand', 'school', 'others']
-
-
 There's another way to write this, if this is easier to understand:
 
 
@@ -607,13 +491,6 @@ Let's look at the lexical density of that text
 ```python
 len(set(new_text1))/len(new_text1)
 ```
-
-
-
-
-    0.11871945561398083
-
-
 
 That's much higher!! 
 
@@ -633,13 +510,6 @@ my_file = f.read()
 type(my_file)
 ```
 
-
-
-
-    str
-
-
-
 **Going Forward**
 
 * Use a text editor to write complete programs
@@ -658,3 +528,8 @@ How do I know where to go?!?
     * http://andybromberg.com/sentiment-analysis-python/
     * etc.
 
+
+
+```python
+
+```
